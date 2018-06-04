@@ -5,6 +5,7 @@ import cucumber.api.java.en.Then;
 import forms.CompareForm;
 import forms.DataForCompare;
 import org.testng.Assert;
+import webdriver.Browser;
 
 public class CompareMileage {
 
@@ -13,5 +14,6 @@ public class CompareMileage {
         CompareForm compareForm=new CompareForm();
         Assert.assertEquals(compareForm.getMileage(compareForm.getFirstCarCharacteristics()),DataForCompare.getMileage(DataForCompare.getFirstCharacteristics()));
         Assert.assertEquals(compareForm.getMileage(compareForm.getSecondCarCharacteristics()),DataForCompare.getMileage(DataForCompare.getSecondCharacteristics()));
+        Browser.getInstance().getDriver().quit();
     }
 }
