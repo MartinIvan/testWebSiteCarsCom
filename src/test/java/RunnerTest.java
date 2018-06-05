@@ -4,8 +4,7 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 @CucumberOptions(
         features = {"src/test/java/features"},
         glue = {"steps"},
-        dryRun = false,
-        strict = false
+        plugin = {"http:target/cucumber-html-report"}
 )
 public class RunnerTest extends AbstractTestNGCucumberTests {
 }
