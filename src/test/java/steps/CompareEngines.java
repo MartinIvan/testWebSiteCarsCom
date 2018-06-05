@@ -35,6 +35,7 @@ public class CompareEngines {
 
         Browser.getInstance().getDriver().navigate().to("http://www.cars.com/");
         MainForm mainForm=new MainForm();
+        mainForm.selectZipCode();
         mainForm.btnSearch.click();
         ResultSearchForm resultSearchForm=new ResultSearchForm();
         resultSearchForm.copmare.click();
