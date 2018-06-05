@@ -3,8 +3,8 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 @CucumberOptions(
         features = {"src/test/java/features"},
-        glue = {"steps"},
-        plugin = {"http:target/cucumber-html-report"}
+        glue = {"steps"}
+
 )
 public class RunnerTest extends AbstractTestNGCucumberTests {
 }
