@@ -9,7 +9,7 @@ import webdriver.Browser;
 
 public class CompareEngines {
 
-    DataForCompare dataForCompare=new DataForCompare();
+
     @Given("^I search two auto and add to compare$")
     public void i_search_two_auto_and_add_to_compare() throws Throwable {
         Browser.getInstance().getDriver().navigate().to("http://www.cars.com/");
