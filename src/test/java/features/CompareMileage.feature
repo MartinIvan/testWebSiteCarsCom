@@ -6,4 +6,4 @@ Feature: Compare mileages
 
     When I go to compare
 
-    Then I compare mileages in compare page and page auto
+    Then I compare mileages on compare page and page of car

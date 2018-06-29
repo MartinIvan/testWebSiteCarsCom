@@ -8,4 +8,4 @@ Feature: Compare engines
 
     When I go to compare
 
-    Then I compare engines in compare page and page auto
+    Then I compare engines on compare page and page of car

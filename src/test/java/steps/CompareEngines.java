@@ -10,41 +10,7 @@ import webdriver.Browser;
 public class CompareEngines {
 
 
-    @Given("^I search two auto and add to compare$")
-    public void i_search_two_auto_and_add_to_compare() throws Throwable {
-        Browser.getInstance().getDriver().navigate().to("http://www.cars.com/");
-        Browser.getInstance().getDriver().manage().window().maximize();
-        MainForm mainForm=new MainForm();
-        mainForm.inputCorrectData();
-
-        ResultSearchForm resultSearchForm=new ResultSearchForm();
-        resultSearchForm.addToCompareAndGoToPageAuto();
-
-        CarForm firstCarForm=new CarForm();
-        DataForCompare.setFirstcharacteristics(firstCarForm.getCharacteristics());
-        mainForm.inputCorrectData();
-
-        ResultSearchForm secondResultSearchForm =new ResultSearchForm();
-        secondResultSearchForm.addToCompareAndGoToPageAuto();
-        CarForm secondCarForm=new CarForm();
-        DataForCompare.setSecondCharacteristics(secondCarForm.getCharacteristics());
-    }
-
-    @When("^I go to compare$")
-    public void i_go_to_compare() throws Throwable {
-
-        Browser.getInstance().getDriver().navigate().to("http://www.cars.com/");
-        MainForm mainForm=new MainForm();
-        mainForm.selectZipCode();
-        mainForm.btnSearch.click();
-        ResultSearchForm resultSearchForm=new ResultSearchForm();
-        resultSearchForm.copmare.click();
-        resultSearchForm.goToComparePage.click();
-
-
-    }
-
-    @Then("^I compare engines in compare page and page auto$")
+    @Then("^I compare engines on compare page and page of car$")
     public void i_check_characteristics_on_compare_and_page_auto() throws Throwable {
         CompareForm compareForm=new CompareForm();
 
