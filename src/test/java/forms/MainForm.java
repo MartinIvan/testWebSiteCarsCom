@@ -17,7 +17,7 @@ public class MainForm extends BaseForm {
     private static final String formLocator = "//select[@name='stockType']";
 
     public final Label stockType = new Label("name=stockType", "Stock type");
-    public final Label maker = new Label("xPath=//select[@name='stockType']/parent::*/parent::*/following-sibling::div[1]", "Maker");
+    public final Label maker = new Label("xPath=//select[@name='stockType']/parent::*/parent::*/following-sibling::div[1]",     "Maker");
     public final Label model = new Label("xPath=//select[@name='stockType']/parent::*/parent::*/following-sibling::div[2]", "Model");
     public final Label maxPrice = new Label("xPath=//select[@name='stockType']/parent::*/parent::*/following-sibling::div[3]", "MaxPrice");
     public final Label mileage = new Label("xPath=//select[@name='stockType']/parent::*/parent::*/following-sibling::div[4]/div", "Mileage");
@@ -81,7 +81,7 @@ public class MainForm extends BaseForm {
         return (int) (Math.random() * maxNumber);
 
     }
-
+    /*Inputs correct data to search for cars*/
     public void inputCorrectData() {
 
         if (!Browser.getInstance().getDriver().getCurrentUrl().equals("http://www.cars.com")) {
@@ -95,17 +95,17 @@ public class MainForm extends BaseForm {
         mainForm.selectMileage();
         mainForm.selectZipCode();
         mainForm.btnSearch.click();
-        if (!mainForm.checkIsPageMain()) {
+        if (mainForm.checkIsCorrectSearchResult()) {
             mainForm.inputCorrectData();
         }
     }
-
-    public boolean checkIsPageMain() {
+    /*Checkes is correct search result. If not, goes to Main Page*/
+    public boolean checkIsCorrectSearchResult() {
 
         if (Browser.getInstance().getDriver().findElements(By.xpath("//div[@id='srp-listing-rows-container']/div[@class='shop-srp-listings__listing']")).size() == 0 || Browser.getInstance().getDriver().findElements(By.xpath("//p[@class='no-results-message']")).size() > 0) {
-            return false;
-        } else {
             return true;
+        } else {
+            return false;
         }
     }
 }
